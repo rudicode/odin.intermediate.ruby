@@ -1,0 +1,22 @@
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Mobile Alert Phone Numbers</title>
+</head>
+<body>
+  <h1>Hello Mr. Smithers</h1>
+  <p>You asked for a list of names and phone numbers of the people that registered.</p>
+
+  <table>
+      <th>Name</th><th>Phone Number</th>
+      <% names_and_phone_numbers.each do |pair| %>
+      <tr>
+        <% if pair[:phone] %>
+          <td><%= "#{pair[:name]}" %></td>
+          <td><%= "#{pair[:phone]}" %></td>
+        <% end %>
+      </tr>
+      <% end %>
+  </table>
+</body>
+</html>
