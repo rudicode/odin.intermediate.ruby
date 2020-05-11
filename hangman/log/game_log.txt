@@ -1,41 +1,12 @@
-# Logfile created on 2020-05-10 18:51:25 -0400 by logger.rb/66358
-2020-05-10T18:51:25 : DEBUG : ---------------
-2020-05-10T18:51:25 : DEBUG : Starting Logger
-2020-05-10T18:51:25 : DEBUG : Switching to scene: "splashScreen"
-2020-05-10T18:51:25 : DEBUG : Levaing scene: "splashScreen"
-2020-05-10T18:51:25 : DEBUG : Switching to scene: "mainGame"
-2020-05-10T18:51:25 : DEBUG : Finished
-2020-05-10T18:51:25 : DEBUG : Stopping Logger
-2020-05-10T18:51:25 : DEBUG : ===============
-2020-05-10T19:01:51 : DEBUG : ---------------
-2020-05-10T19:01:51 : DEBUG : Starting Logger
-2020-05-10T19:01:51 : DEBUG : Switching to scene: "splashScreen"
-2020-05-10T19:01:51 : DEBUG : Levaing scene: "splashScreen"
-2020-05-10T19:01:51 : DEBUG : Switching to scene: "mainGame"
-2020-05-10T19:01:51 : DEBUG : Finished
-2020-05-10T19:01:51 : DEBUG : Stopping Logger
-2020-05-10T19:01:51 : DEBUG : ===============
-2020-05-10T19:05:47 : hangman : DEBUG : ---------------
-2020-05-10T19:05:47 : hangman : DEBUG : Starting Logger
-2020-05-10T19:05:47 : hangman : DEBUG : Switching to scene: "splashScreen"
-2020-05-10T19:05:47 : hangman : DEBUG : Levaing scene: "splashScreen"
-2020-05-10T19:05:47 : hangman : DEBUG : Switching to scene: "mainGame"
-2020-05-10T19:05:47 : hangman : DEBUG : Finished
-2020-05-10T19:05:47 : hangman : DEBUG : Stopping Logger
-2020-05-10T19:05:47 : hangman : DEBUG : ===============
-2020-05-10T19:11:34 : sample game : DEBUG : ---------------
-2020-05-10T19:11:34 : sample game : DEBUG : Starting Logger
-2020-05-10T19:11:34 : sample game : DEBUG : Switching to scene: "splashScreen"
-2020-05-10T19:11:34 : sample game : DEBUG : Levaing scene: "splashScreen"
-2020-05-10T19:11:34 : sample game : DEBUG : Switching to scene: "mainGame"
-2020-05-10T19:11:34 : sample game : DEBUG : Finished
-2020-05-10T19:11:34 : sample game : DEBUG : Stopping Logger
-2020-05-10T19:11:34 : sample game : DEBUG : ===============
-2020-05-10T19:11:54 : SampleGame : DEBUG : ---------------
-2020-05-10T19:11:54 : SampleGame : DEBUG : Starting Logger
-2020-05-10T19:11:54 : SampleGame : DEBUG : Switching to scene: "splashScreen"
-2020-05-10T19:11:54 : SampleGame : DEBUG : Levaing scene: "splashScreen"
-2020-05-10T19:11:54 : SampleGame : DEBUG : Switching to scene: "mainGame"
-2020-05-10T19:11:54 : SampleGame : DEBUG : Finished
-2020-05-10T19:11:54 : SampleGame : DEBUG : Stopping Logger
-2020-05-10T19:11:54 : SampleGame : DEBUG : ===============
+# Logfile created on 2020-05-11 16:23:25 -0400 by logger.rb/66358
+2020-05-11T16:23:25 : SampleGame : DEBUG : ---------------
+2020-05-11T16:23:25 : SampleGame : DEBUG : Starting Logger
+2020-05-11T16:23:25 : SampleGame : DEBUG : Ending scene: "splashScreen"
+2020-05-11T16:23:25 : SampleGame : DEBUG : Switching to scene: "splashScreen"
+2020-05-11T16:23:26 : SampleGame : DEBUG : Levaing scene: "splashScreen"
+2020-05-11T16:23:26 : SampleGame : DEBUG : Ending scene: "splashScreen"
+2020-05-11T16:23:26 : SampleGame : DEBUG : Switching to scene: "mainGame"
+2020-05-11T16:23:34 : SampleGame : DEBUG : Switching to scene: "gameEnd"
+2020-05-11T16:23:38 : SampleGame : DEBUG : Finished
+2020-05-11T16:23:38 : SampleGame : DEBUG : Stopping Logger
+2020-05-11T16:23:38 : SampleGame : DEBUG : ===============
