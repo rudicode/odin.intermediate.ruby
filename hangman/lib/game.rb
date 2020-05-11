@@ -1,92 +1,22 @@
-require 'pry'
 require 'logger'
-# require './lib/game_io'
-class Scene
-  attr_accessor :state
-  attr_reader :scene_name, :next_scene
-
-  def initialize(scene_name="default")
-    @scene_name = scene_name
-    @next_scene = ""
-    @state = :starting
-  end
-
-  def update
-  end
-
-  def draw
-  end
-
-end
-
-class ExampleGameTitleScene < Scene
-  def initialize(scene_name)
-    super(scene_name)
-    @state = :play
-  end
-
-  def update
-    # input = gets.chomp
-    input = 'next'
-    if input == 'next'
-      @state = :change_scene
-      @next_scene = "mainGame" # change this to an id string eg. "Level 1" or "Splash Screen"
-    end
-  end
-
-  def draw
-    puts "Title Screen"
-  end
-end
-
-##########################
-
-class ExampleGameMainScene < Scene
-  def initialize(scene_name)
-    super(scene_name)
-    @counter = 0
-    @state = :play
-  end
-
-  def update
-    @counter += 2
-    if @counter >= 20
-      @state = :exit
-    end
-  end
-
-  def draw
-    puts "Scene2 Counter: #{@counter}"
-  end
-end
-
-##########################
 
 class Game
-  def initialize
+  LOG_LIMIT = 1024**2 * 1 # in bytes
+  def initialize(game_name, scenes, starting_scene)
     @state = :starting
-    @logger = Logger.new("log/game_log.txt")
+    @game_name = game_name
+    @scenes = scenes
+    @logger = Logger.new("log/game_log.txt",2 , LOG_LIMIT)
     logger_setup
-    @scenes = []
-    @scenes << ExampleGameTitleScene.new("splashScreen")
-    @scenes << ExampleGameMainScene.new("mainGame")
-    change_scene("splashScreen")
+    change_scene(starting_scene)
   end
 
-  def logger_setup
-    @logger.level = Logger::DEBUG # DEBUG, INFO, WARN, ERROR, FATAL, UNKNOWN
-    @logger.formatter = proc do |severity, datetime, progname, msg|
-      "#{datetime.strftime("%Y-%m-%dT%T")} : #{severity} : #{msg}\n"
-    end
-    @logger.debug("---------------")
-    @logger.debug("Starting Logger")
-  end
 
   def start
     while @state != :exit && @state != :change_scene
       draw()
       update()
-      #gets # uncomment to step through loop
+      #gets # uncomment this line to step through loop
       if @state == :change_scene
         change_scene(@scene.next_scene)
       end
@@ -106,6 +36,7 @@ class Game
     @scene.draw
   end
 
+  private
   def change_scene(scene_name)
     found_scene = false
     @scenes.each_with_index do |scene, index|
@@ -118,8 +49,23 @@ class Game
       end
     end
     if !found_scene
-      @logger.error("Scene: \"#{scene_name}\" NOT FOUND.")
+      @logger.fatal("Scene: \"#{scene_name}\" NOT FOUND.")
       @state = :exit
+    end
+  end
+
+  def logger_setup
+    @logger.level = Logger::DEBUG # DEBUG, INFO, WARN, ERROR, FATAL, UNKNOWN
+    @logger.formatter = proc do |severity, datetime, progname, msg|
+      severity = " #{severity} " if severity == "ERROR" || severity == "FATAL"
+      "#{datetime.strftime("%Y-%m-%dT%T")} : #{@game_name} : #{severity} : #{msg}\n"
+    end
+    @logger.debug("---------------")
+    @logger.debug("Starting Logger")
+
+    # set logger on all scenes
+    @scenes.each do |scene|
+      scene.logger = @logger
     end
   end
 
