@@ -22,10 +22,8 @@ class ExampleGameTitleScene < Scene
   def update
     input = @game_io.get_string()
     if input
-      @state = :change_scene
-      @next_scene = "mainGame"
+      setup_next_scene("mainGame")
       @game_data.update({rand_size: 4})
-      @logger.debug("Levaing scene: \"#{@scene_name}\"")
     end
   end
 

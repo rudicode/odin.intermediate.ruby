@@ -1,4 +1,5 @@
 require './lib/scene'
+
 class ExampleGameEndingScene < Scene
   def beginning
     @guesses = @game_data.get(:guesses)
@@ -15,6 +16,6 @@ class ExampleGameEndingScene < Scene
 
   def update
     input = @game_io.get_string()
-    @state = :exit
+    setup_next_scene(:exit)
   end
 end

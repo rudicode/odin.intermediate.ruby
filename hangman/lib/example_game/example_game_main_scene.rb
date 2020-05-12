@@ -30,8 +30,7 @@ class ExampleGameMainScene < Scene
     @guesses += 1
     @answer = rand(@rand_size)+1
     if input.to_i == @answer
-      @state = :change_scene
-      @next_scene = "gameEnd"
+      setup_next_scene("gameEnd")
     end
   end
 

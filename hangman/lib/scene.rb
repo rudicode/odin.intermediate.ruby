@@ -33,4 +33,10 @@ class Scene
     # used to get user input and apply any game logic
   end
 
+  private
+  def setup_next_scene(scene_name)
+    scene_name == :exit ? @state = :exit : @state = :change_scene
+    @next_scene = scene_name
+  end
+
 end
