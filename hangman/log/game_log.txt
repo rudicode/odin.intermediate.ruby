@@ -1,12 +1,37 @@
-# Logfile created on 2020-05-11 16:23:25 -0400 by logger.rb/66358
-2020-05-11T16:23:25 : SampleGame : DEBUG : ---------------
-2020-05-11T16:23:25 : SampleGame : DEBUG : Starting Logger
-2020-05-11T16:23:25 : SampleGame : DEBUG : Ending scene: "splashScreen"
-2020-05-11T16:23:25 : SampleGame : DEBUG : Switching to scene: "splashScreen"
-2020-05-11T16:23:26 : SampleGame : DEBUG : Levaing scene: "splashScreen"
-2020-05-11T16:23:26 : SampleGame : DEBUG : Ending scene: "splashScreen"
-2020-05-11T16:23:26 : SampleGame : DEBUG : Switching to scene: "mainGame"
-2020-05-11T16:23:34 : SampleGame : DEBUG : Switching to scene: "gameEnd"
-2020-05-11T16:23:38 : SampleGame : DEBUG : Finished
-2020-05-11T16:23:38 : SampleGame : DEBUG : Stopping Logger
-2020-05-11T16:23:38 : SampleGame : DEBUG : ===============
+# Logfile created on 2020-05-11 19:05:24 -0400 by logger.rb/66358
+2020-05-11T19:05:24 : Hangman : DEBUG : ---------------
+2020-05-11T19:05:24 : Hangman : DEBUG : Starting Logger
+2020-05-11T19:05:24 : Hangman : DEBUG : Ending scene: "splashScreen"
+2020-05-11T19:05:24 : Hangman : DEBUG : Beginning scene: "splashScreen"
+2020-05-11T19:05:24 : Hangman : DEBUG : Switching to scene: "splashScreen"
+2020-05-11T19:05:24 : Hangman : DEBUG : Ending scene: "splashScreen"
+2020-05-11T19:05:24 : Hangman : DEBUG : Finished
+2020-05-11T19:05:24 : Hangman : DEBUG : Stopping Logger
+2020-05-11T19:05:24 : Hangman : DEBUG : ===============
+2020-05-11T22:44:56 : Hangman : DEBUG : ---------------
+2020-05-11T22:44:56 : Hangman : DEBUG : Starting Logger
+2020-05-11T22:44:56 : Hangman : DEBUG : Ending scene: "splashScreen"
+2020-05-11T22:44:56 : Hangman : DEBUG : Beginning scene: "splashScreen"
+2020-05-11T22:44:56 : Hangman : DEBUG : Switching to scene: "splashScreen"
+2020-05-11T22:44:56 : Hangman : DEBUG : Ending scene: "splashScreen"
+2020-05-11T22:44:56 : Hangman : DEBUG : Finished
+2020-05-11T22:44:56 : Hangman : DEBUG : Stopping Logger
+2020-05-11T22:44:56 : Hangman : DEBUG : ===============
+2020-05-11T22:46:05 : Hangman : DEBUG : ---------------
+2020-05-11T22:46:05 : Hangman : DEBUG : Starting Logger
+2020-05-11T22:46:05 : Hangman : DEBUG : Ending scene: "splashScreen"
+2020-05-11T22:46:05 : Hangman : DEBUG : Switching to scene: "splashScreen"
+2020-05-11T22:46:05 : Hangman : DEBUG : Beginning scene: "splashScreen"
+2020-05-11T22:46:05 : Hangman : DEBUG : Ending scene: "splashScreen"
+2020-05-11T22:46:05 : Hangman : DEBUG : Finished
+2020-05-11T22:46:05 : Hangman : DEBUG : Stopping Logger
+2020-05-11T22:46:05 : Hangman : DEBUG : ===============
+2020-05-12T00:21:56 : Hangman : DEBUG : ---------------
+2020-05-12T00:21:56 : Hangman : DEBUG : Starting Logger
+2020-05-12T00:21:56 : Hangman : DEBUG : Ending scene: "splashScreen"
+2020-05-12T00:21:56 : Hangman : DEBUG : Switching to scene: "splashScreen"
+2020-05-12T00:21:56 : Hangman : DEBUG : Beginning scene: "splashScreen"
+2020-05-12T00:21:56 : Hangman : DEBUG : Ending scene: "splashScreen"
+2020-05-12T00:21:56 : Hangman : DEBUG : Finished
+2020-05-12T00:21:56 : Hangman : DEBUG : Stopping Logger
+2020-05-12T00:21:56 : Hangman : DEBUG : ===============

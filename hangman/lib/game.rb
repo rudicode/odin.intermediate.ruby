@@ -49,10 +49,10 @@ class Game
         found_scene = true
         @scene.ending  # ( clean up existing scene before switching to the new one)
         @scene = @scenes[index]
+        @logger.debug("Switching to scene: \"#{@scene.scene_name}\"")
         @scene.beginning # ( init new scene, before calling draw() and update())
         @scene.state = :play
         @state = :play
-        @logger.debug("Switching to scene: \"#{@scene.scene_name}\"")
       end
     end
     if !found_scene
