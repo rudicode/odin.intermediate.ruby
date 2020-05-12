@@ -12,6 +12,8 @@ class HangmanEndingScene < Scene
   end
 
   def ending
+    @game_io.clean_up
+    @logger.debug("@game_io.clean_up")
     @logger.debug("Ending scene: \"#{@scene_name}\"")
   end
 

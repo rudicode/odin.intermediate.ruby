@@ -19,7 +19,9 @@ class HangmanMainScene < Scene
   end
 
   def update
-    @state = :exit
+    @game_io.get_string
+    setup_next_scene('gameEnd')
+    # @state = :exit
   end
 
 end

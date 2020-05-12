@@ -16,10 +16,14 @@ class HangmanTitleScene < Scene
   end
 
   def draw
+    @game_io.clear_screen
+    @game_io.put_string("H A N G M A N", 20, 10)
   end
 
   def update
-    @state = :exit
+    @game_io.get_string("")
+    # @state = :exit
+    setup_next_scene('gameMain')
   end
 
 end
