@@ -2,7 +2,6 @@
 # To be used for storing game data and persisting it to disk
 
 class GameData
-  # attr_accessor :logger
   def initialize(logger)
     @data = {}
     @logger = logger

@@ -59,20 +59,6 @@ class Game
   end
 
   def game_setup
-    # @logger.level = Logger::DEBUG # DEBUG, INFO, WARN, ERROR, FATAL, UNKNOWN
-    # @logger.formatter = proc do |severity, datetime, progname, msg|
-    #   severity = " #{severity} " if severity == "ERROR" || severity == "FATAL"
-    #   "#{datetime.strftime("%Y-%m-%dT%T")} : #{@game_name} : #{severity} : #{msg}\n"
-    # end
-    # @logger.debug("---------------")
-    # @logger.debug("Starting Logger")
-
-    # set logger on all scenes
-    @scenes.each do |scene|
-      # scene.logger = @logger # set logger on all scenes
-      # scene.game_data = @game_data # set game_data on all scenes
-    end
-    # @game_data.logger = @logger
   end
 
 end

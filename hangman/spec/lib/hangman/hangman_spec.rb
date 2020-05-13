@@ -19,7 +19,7 @@ RSpec.describe Hangman do
 
     it 'adds the letter to @letters_used Array' do
       @game.make_guess('a')
-      @game.letters_used.should include 'a'
+      expect(@game.letters_used).to include('a')
     end
 
     context 'correct guess' do
@@ -41,7 +41,7 @@ RSpec.describe Hangman do
       end
       it 'increments wrong_guess_counter' do
         # @game.make_guess('a')
-        expect{ @game.make_guess('a')}.to change {@game.wrong_guess_counter}.by(1)
+        expect{ @game.make_guess('a')}.to change {@game.guesses_left}.by(-1)
       end
     end
 
@@ -78,7 +78,6 @@ RSpec.describe Hangman do
       expect(@game.lost?).to be_falsy
       @game.make_guess('7')
       expect(@game.lost?).to be_truthy
-
 
     end
   end

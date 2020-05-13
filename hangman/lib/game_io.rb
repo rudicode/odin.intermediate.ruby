@@ -20,7 +20,7 @@ class GameIo
   end
 
   def put_string(text, column, line)
-    print "\033[#{line};#{column}H#{CHIDE}#{TXTPUR}#{text}#{TXTRST}"
+    print "\033[#{line};#{column}H#{TXTGRN}#{text}#{TXTRST}"
   end
 
   def clean_up

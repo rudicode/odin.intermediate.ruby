@@ -21,11 +21,17 @@ class HangmanMainScene < Scene
   end
 
   def draw
+    @game_io.put_string("H A N G M A N", 2, 4)
+    @game_io.put_string("Guesses left: #{@hangman.guesses_left}", 2, 6)
   end
 
   def update
-    @game_io.get_string
-    setup_next_scene('gameEnd')
+    input = @game_io.get_string
+    if input == 'q'
+      setup_next_scene('gameEnd')
+    end
+    @hangman.make_guess(input)
+
     # @state = :exit
   end
 
