@@ -70,7 +70,7 @@ class Game
     # set logger on all scenes
     @scenes.each do |scene|
       # scene.logger = @logger # set logger on all scenes
-      scene.game_data = @game_data # set game_data on all scenes
+      # scene.game_data = @game_data # set game_data on all scenes
     end
     # @game_data.logger = @logger
   end
