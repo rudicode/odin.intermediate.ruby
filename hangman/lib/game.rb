@@ -19,6 +19,7 @@ class Game
       draw()
       update()
       #gets # uncomment this line to step through loop
+      @logger.info("Current @state: #{@state}")
       if @state == :change_scene
         change_scene(@scene.next_scene)
       end

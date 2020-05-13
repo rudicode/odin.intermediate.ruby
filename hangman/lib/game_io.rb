@@ -20,7 +20,7 @@ class GameIo
   end
 
   def put_string(text, column, line)
-    print "\033[#{line};#{column}H#{TXTGRN}#{text}#{TXTRST}"
+    print "\033[#{line};#{column}H#{text}" # #{TXTRST}"
   end
 
   def clean_up
@@ -29,5 +29,13 @@ class GameIo
     # shell example
     # `tput smcup`    # Save the display
     # `tput rmcup`    # Restore the display
+  end
+
+  def c_hide
+    print"#{CHIDE}"
+  end
+
+  def c_show
+    print"#{CSHOW}"
   end
 end

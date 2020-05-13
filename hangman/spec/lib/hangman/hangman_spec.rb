@@ -11,7 +11,7 @@ RSpec.describe Hangman do
     end
 
     it 'sets @correct to same length as @solution and underscores' do
-      expect(@game.correct).to eq(['_','_','_','_','_','_'])
+      expect(@game.guessed_word).to eq(['_','_','_','_','_','_'])
     end
   end
 
@@ -25,23 +25,33 @@ RSpec.describe Hangman do
     context 'correct guess' do
       it 'updates @correct to reflect correct guess' do
         @game.make_guess('b')
-        expect(@game.correct).to eq(['b','_','_','_','_','_'])
+        expect(@game.guessed_word).to eq(['b','_','_','_','_','_'])
       end
 
       it 'updates @correct to reflect correct guess for multiple letters' do
         @game.make_guess('a')
-        expect(@game.correct).to eq(['_','a','_','a','_','a'])
+        expect(@game.guessed_word).to eq(['_','a','_','a','_','a'])
+      end
+      it 'does not decrement guesses_left' do
+        @game.make_guess('a')
+        expect{ @game.make_guess('a')}.to change {@game.guesses_left}.by(0)
       end
     end
 
     context 'incorrect guess' do
-      it '@correct does not change with wrong guess' do
+      it '@guessed_word does not change with wrong guess' do
         @game.make_guess('x')
-        expect(@game.correct).to eq(['_','_','_','_','_','_'])
+        expect(@game.guessed_word).to eq(['_','_','_','_','_','_'])
       end
-      it 'increments wrong_guess_counter' do
-        # @game.make_guess('a')
-        expect{ @game.make_guess('a')}.to change {@game.guesses_left}.by(-1)
+      it 'decrements guesses_left' do
+        @game.make_guess('a')
+        expect{ @game.make_guess('z')}.to change {@game.guesses_left}.by(-1)
+      end
+    end
+
+    context 'use same letter again' do
+      xit 'not change state when a letter is used a second time' do
+
       end
     end
 

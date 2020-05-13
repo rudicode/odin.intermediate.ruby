@@ -9,9 +9,11 @@ class HangmanTitleScene < Scene
 
   def beginning
     @logger.debug("Beginning scene: \"#{@scene_name}\"")
+    @game_io.c_hide
   end
 
   def ending
+    @game_io.c_show
     @logger.debug("Ending scene: \"#{@scene_name}\"")
   end
 
