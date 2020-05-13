@@ -2,8 +2,8 @@ require './lib/scene'
 
 class HangmanEndingScene < Scene
 
-  def initialize(scene_name)
-    super(scene_name)
+  def initialize(scene_name, game_io, game_data, logger)
+    super(scene_name, game_io, game_data, logger)
     @state = :play
   end
 

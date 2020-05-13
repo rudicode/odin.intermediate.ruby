@@ -1,10 +1,13 @@
 require './lib/colors'
 
 class GameIo
+
   include Colors
-  def initialize(columns=80, lines=40)
-    @columns = columns
-    @lines   = lines
+
+  def initialize(logger)
+    @logger = logger
+    @screen_columns = `tput cols`   # get columns from system
+    @screen_lines   = `tput lines`  # get lines from system
   end
 
   def clear_screen
@@ -23,5 +26,8 @@ class GameIo
   def clean_up
     print "#{CSHOW}#{TXTRST}"
     # TODO position cursor to bottom of screen
+    # shell example
+    # `tput smcup`    # Save the display
+    # `tput rmcup`    # Restore the display
   end
 end

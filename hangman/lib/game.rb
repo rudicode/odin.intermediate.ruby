@@ -1,13 +1,13 @@
 require 'logger'
 
 class Game
-  LOG_LIMIT = 1024**2 * 1 # in bytes
-  def initialize(game_name, scenes, starting_scene, game_data)
+
+  def initialize(game_name, scenes, starting_scene, game_data, logger)
     @state = :starting
     @game_name = game_name
     @game_data = game_data
     @scenes = scenes
-    @logger = Logger.new("log/game_log.txt",2 , LOG_LIMIT)
+    @logger = logger
     game_setup
     @scene = @scenes.first
     change_scene(starting_scene)
@@ -26,10 +26,7 @@ class Game
         @scene.ending # end the scene before exit
       end
     end
-    @logger.debug("Finished")
-    @logger.debug("Stopping Logger")
-    @logger.debug("===============")
-    @logger.close
+
   end
 
   def update
@@ -62,20 +59,20 @@ class Game
   end
 
   def game_setup
-    @logger.level = Logger::DEBUG # DEBUG, INFO, WARN, ERROR, FATAL, UNKNOWN
-    @logger.formatter = proc do |severity, datetime, progname, msg|
-      severity = " #{severity} " if severity == "ERROR" || severity == "FATAL"
-      "#{datetime.strftime("%Y-%m-%dT%T")} : #{@game_name} : #{severity} : #{msg}\n"
-    end
-    @logger.debug("---------------")
-    @logger.debug("Starting Logger")
+    # @logger.level = Logger::DEBUG # DEBUG, INFO, WARN, ERROR, FATAL, UNKNOWN
+    # @logger.formatter = proc do |severity, datetime, progname, msg|
+    #   severity = " #{severity} " if severity == "ERROR" || severity == "FATAL"
+    #   "#{datetime.strftime("%Y-%m-%dT%T")} : #{@game_name} : #{severity} : #{msg}\n"
+    # end
+    # @logger.debug("---------------")
+    # @logger.debug("Starting Logger")
 
     # set logger on all scenes
     @scenes.each do |scene|
-      scene.logger = @logger # set logger on all scenes
+      # scene.logger = @logger # set logger on all scenes
       scene.game_data = @game_data # set game_data on all scenes
     end
-    @game_data.logger = @logger
+    # @game_data.logger = @logger
   end
 
 end

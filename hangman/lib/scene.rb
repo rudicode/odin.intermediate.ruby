@@ -1,15 +1,15 @@
-require './lib/game_io'
+# require './lib/game_io'
 
 class Scene
   attr_accessor :state, :logger, :game_data
   attr_reader :scene_name, :next_scene
 
-  def initialize(scene_name="default")
+  def initialize(scene_name="default", game_io, game_data, logger)
     @scene_name = scene_name
     @next_scene = ""
-    @game_io = GameIo.new()
-    @game_data = nil
-    @logger = nil
+    @game_io = game_io
+    @game_data = game_data
+    @logger = logger
     @state = :starting
   end
 
