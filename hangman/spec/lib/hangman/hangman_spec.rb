@@ -17,10 +17,6 @@ RSpec.describe Hangman do
 
   describe '#make_guess' do
 
-    it 'adds the letter to @letters_used Array' do
-      @game.make_guess('a')
-      expect(@game.letters_used).to include('a')
-    end
 
     context 'correct guess' do
       it 'updates @correct to reflect correct guess' do
@@ -36,9 +32,18 @@ RSpec.describe Hangman do
         @game.make_guess('a')
         expect{ @game.make_guess('a')}.to change {@game.guesses_left}.by(0)
       end
+      it 'adds the letter to @letters_used Array' do
+        @game.make_guess('a')
+        expect(@game.letters_used).to_not include('a')
+      end
     end
 
     context 'incorrect guess' do
+
+      it 'adds the letter to @letters_used Array' do
+        @game.make_guess('x')
+        expect(@game.letters_used).to include('x')
+      end
       it '@guessed_word does not change with wrong guess' do
         @game.make_guess('x')
         expect(@game.guessed_word).to eq(['_','_','_','_','_','_'])
@@ -50,8 +55,9 @@ RSpec.describe Hangman do
     end
 
     context 'use same letter again' do
-      xit 'not change state when a letter is used a second time' do
-
+      it 'not change state when a letter is used a second time' do
+        @game.make_guess('x')
+        expect{ @game.make_guess('x') }.to_not change {@game.letters_used}
       end
     end
 

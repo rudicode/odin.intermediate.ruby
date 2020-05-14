@@ -34,22 +34,22 @@ class HangmanMainScene < Scene
   end
 
   def draw
-    x_pos = 16
+    x_pos = 20
     @game_io.clear_screen
-    @game_io.put_string("H A N G M A N", 22, 4)
-    @game_io.put_string("Category: #{@category_text}", 22,6)
+    draw_hangman(@hangman.guesses_left,4,5)
+    @game_io.put_string("H A N G M A N", 3, 2)
+    @game_io.put_string("#{@category_text}", x_pos,6)
     @game_io.put_string("#{@hangman.guessed_word.join("  ")}", x_pos, 10)
     @game_io.put_string("#{@hangman.letters_used.join(" ")}", 2, 14)
-    @game_io.put_string("#{@hangman.solution.join("  ")}", x_pos, 16) # for debug
-    draw_hangman(@hangman.guesses_left,2,4)
+    @game_io.put_string("#{@hangman.solution.join("  ")}", x_pos, 36) # for debug
 
     if @state == :play || @state == :starting
-      @game_io.put_string("Guesses left: #{@hangman.guesses_left}", x_pos, 8)
-      @game_io.put_string("Pick a letter: ", x_pos, 12)
+      @game_io.put_string("Guesses left: #{@hangman.guesses_left}", 2, 16)
+      @game_io.put_string("Pick a letter: ", x_pos, 14)
     end
 
     if @state == :finished
-      @game_io.put_string("Enter to play again: ", x_pos, 12)
+      @game_io.put_string("Enter to play again: ", x_pos, 14)
     end
   end
 
