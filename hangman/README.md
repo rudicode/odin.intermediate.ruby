@@ -19,6 +19,7 @@
 * Guess one letter at a time.
 * Your correct letters will be revealed in their spots in the word or phrase.
 * If you guessed incorrectly the letter will appear to the left.
+* To quit just type `quit` or `!`
 
 
 ##### Adding your own words or phrases
@@ -44,8 +45,11 @@ Conveyor Belt
 Escalator
 ```
 
-### TODO
+#### TODO
+- `Hangman#make_guess` needs to limit input to `[a-z]` `[A-Z]` `[space]`
 - Add `save/restore` game feature
+
+#### Future possibilities
 - Add player name feature
 - Add scoring mechanism, where number of points given relates to how many guesses.
 - Add statistics page, where you can find out:

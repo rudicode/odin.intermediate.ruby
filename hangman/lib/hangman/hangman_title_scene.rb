@@ -1,6 +1,8 @@
 require './lib/scene'
+require './lib/colors'
 
 class HangmanTitleScene < Scene
+  include Colors
 
   def initialize(scene_name, game_io, game_data, logger)
     super(scene_name, game_io, game_data, logger)
@@ -19,7 +21,7 @@ class HangmanTitleScene < Scene
 
   def draw
     @game_io.clear_screen
-    @game_io.put_string("H A N G M A N", 20, 10)
+    @game_io.put_string("#{UNDGRN}H A N G M A N#{TXTRST}", 20, 10)
   end
 
   def update
