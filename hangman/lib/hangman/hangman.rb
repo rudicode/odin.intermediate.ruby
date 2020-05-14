@@ -1,10 +1,6 @@
 class Hangman
   attr_reader :solution, :guessed_word, :guesses_left, :letters_used, :max_guesses
   def initialize(word)
-    # @solution = word.split("")
-    # @guessed_word = Array.new(@solution.length,"_")
-    # @letters_used = []
-    # @guesses_left = @max_guesses
     @max_guesses = 7 # TODO: should be able to set this from main game
     reset(word)
   end
@@ -20,14 +16,13 @@ class Hangman
       if x.downcase == letter.downcase
         @guessed_word[index] = x
         letter_matched = true
-        # @guesses_left += 1
       end
     end
     if !letter_matched
       @letters_used << letter.downcase
       @guesses_left -= 1
     end
-    @guessed_word = @solution if lost? # reveal word after loss
+    # @guessed_word = @solution if lost? # reveal word after loss
   end
 
   def win?

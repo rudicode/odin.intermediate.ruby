@@ -39,5 +39,5 @@ logger.debug("Stopping Logger")
 logger.debug("===============")
 logger.close
 # debug game_data without using logger
-puts "\n\ngame_data:"
-p game_data.all  # examine the data at the end of game
+# puts "\n\ngame_data:"
+# p game_data.all  # examine the data at the end of game

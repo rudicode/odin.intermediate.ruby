@@ -37,19 +37,27 @@ class HangmanMainScene < Scene
     x_pos = 20
     @game_io.clear_screen
     draw_hangman(@hangman.guesses_left,4,5)
-    @game_io.put_string("H A N G M A N", 3, 2)
-    @game_io.put_string("#{@category_text}", x_pos,6)
-    @game_io.put_string("#{@hangman.guessed_word.join("  ")}", x_pos, 10)
-    @game_io.put_string("#{@hangman.letters_used.join(" ")}", 2, 14)
-    @game_io.put_string("#{@hangman.solution.join("  ")}", x_pos, 36) # for debug
+    @game_io.put_string("#{UNDGRN}H A N G M A N#{TXTRST}", 14, 2)
+    @game_io.put_string("#{BLDBLU}#{@category_text}#{TXTRST}", x_pos,6)
+    @game_io.put_string("#{TXTRED}#{@hangman.letters_used.join(" ")}#{TXTRST}", 2, 14)
+    # @game_io.put_string("#{BLDBLK}#{@hangman.solution.join("  ")}#{TXTRST}", x_pos, 36) # for debug
 
     if @state == :play || @state == :starting
-      @game_io.put_string("Guesses left: #{@hangman.guesses_left}", 2, 16)
-      @game_io.put_string("Pick a letter: ", x_pos, 14)
+      @game_io.put_string("#{BLDWHT}#{@hangman.guessed_word.join("  ")}#{TXTRST}", x_pos, 10)
+      @game_io.put_string("#{TXTWHT}Guesses", 4, 16)
+      @game_io.put_string("remaining", 3, 17)
+      @game_io.put_string("#{@hangman.guesses_left}#{TXTRST}", 7, 18)
+      @game_io.put_string("#{TXTWHT}Guess a letter: #{BLDWHT}", x_pos, 14)
     end
 
     if @state == :finished
-      @game_io.put_string("Enter to play again: ", x_pos, 14)
+      @game_io.put_string("#{TXTWHT}Enter to play again: #{TXTRST}", x_pos, 14)
+      @game_io.put_string("#{BLDWHT}#{@hangman.solution.join("  ")}#{TXTRST}", x_pos, 10)
+      if @hangman.win?
+        @game_io.put_string("#{BLDGRN}Congratulations, you WIN this round!  #{TXTRST}", 5, 17)
+      else
+        @game_io.put_string("#{TXTRED}Sorry, you LOSE this round!  #{TXTRST}", 8, 17)
+      end
     end
   end
 
@@ -67,7 +75,6 @@ class HangmanMainScene < Scene
         # serialize Hangman??
       end
       #setup new word to play
-      # @hangman.reset(@word_list.sample)
       setup_random_word
       @state = :starting
     end
@@ -133,100 +140,69 @@ class HangmanMainScene < Scene
   end
 
   def draw_hangman(frame_number,column, line)
-    frame_number = 0 if @hangman_graphic[frame_number] == nil
-    @hangman_graphic[frame_number].each_with_index do |text,index|
-      @game_io.put_string("#{BLDYLW}#{text}#{TXTRST}", column, line+index)
+    draw_graphic(@hangman_graphic[7], column, line)
+    return if @hangman_graphic[frame_number] == nil
+    return if frame_number >= 7 || frame_number < 0
+    draw_graphic(@hangman_graphic[frame_number], column+4, line+1)
+  end
+
+  def draw_graphic(arr, column, line)
+    arr.each_with_index do |text,index|
+      @game_io.put_string("#{text}", column, line+index)
     end
+
   end
 
   def setup_hangman_graphic
     # special characters   █   │ ³ │ ░ ┌ ─ ┬ ┐ └ ─ ┴ ┘ ─ ┼ ● ┤ ├
     hm = []
-    hm << "┌────┐    "
-    hm << "│    │    "
-    hm << "│    O    "
-    hm << "│   \\│/   "
-    hm << "│    │     "
-    hm << "│   / \\   "
-    hm << "│         "
-    hm << "├──────┐"
-    hm << "└──────┘"
+    hm << "#{BLDYLW}"
+    hm << " O "
+    hm << "\\│/"
+    hm << " │ "
+    hm << "/ \\ #{TXTRST}"
     @hangman_graphic[0] = hm
 
     hm = []
-    hm << "┌────┐    "
-    hm << "│    │    "
-    hm << "│    O    "
-    hm << "│   \\│/   "
-    hm << "│    │    "
-    hm << "│   /     "
-    hm << "│         "
-    hm << "├──────┐"
-    hm << "└──────┘"
+    hm << "#{BLDYLW}"
+    hm << " O "
+    hm << "\\│/"
+    hm << " │ "
+    hm << "/   #{TXTRST}"
     @hangman_graphic[1] = hm
 
     hm = []
-    hm << "┌────┐    "
-    hm << "│    │    "
-    hm << "│    O    "
-    hm << "│   \\│/   "
-    hm << "│    │    "
-    hm << "│         "
-    hm << "│         "
-    hm << "├──────┐"
-    hm << "└──────┘"
+    hm << "#{BLDYLW}"
+    hm << " O "
+    hm << "\\│/"
+    hm << " │ #{TXTRST}"
     @hangman_graphic[2] = hm
 
     hm = []
-    hm << "┌────┐    "
-    hm << "│    │    "
-    hm << "│    O    "
-    hm << "│   \\│/   "
-    hm << "│         "
-    hm << "│         "
-    hm << "│         "
-    hm << "├──────┐"
-    hm << "└──────┘"
+    hm << "#{BLDYLW}"
+    hm << " O "
+    hm << "\\│/#{TXTRST}"
     @hangman_graphic[3] = hm
 
     hm = []
-    hm << "┌────┐    "
-    hm << "│    │    "
-    hm << "│    O    "
-    hm << "│    │/   "
-    hm << "│         "
-    hm << "│         "
-    hm << "│         "
-    hm << "├──────┐"
-    hm << "└──────┘"
+    hm << "#{BLDYLW}"
+    hm << " O "
+    hm << " │/#{TXTRST}"
     @hangman_graphic[4] = hm
 
     hm = []
-    hm << "┌────┐    "
-    hm << "│    │    "
-    hm << "│    O    "
-    hm << "│    │    "
-    hm << "│         "
-    hm << "│         "
-    hm << "│         "
-    hm << "├──────┐"
-    hm << "└──────┘"
+    hm << "#{BLDYLW}"
+    hm << " O "
+    hm << " │ #{TXTRST}"
     @hangman_graphic[5] = hm
 
     hm = []
-    hm << "┌────┐    "
-    hm << "│    │    "
-    hm << "│    O    "
-    hm << "│         "
-    hm << "│         "
-    hm << "│         "
-    hm << "│         "
-    hm << "├──────┐"
-    hm << "└──────┘"
+    hm << "#{BLDYLW}"
+    hm << " O #{TXTRST}"
     @hangman_graphic[6] = hm
 
     hm = []
-    hm << "┌────┐    "
+    hm << "#{TXTYLW}┌────┐    "
     hm << "│    │    "
     hm << "│         "
     hm << "│         "
@@ -234,7 +210,7 @@ class HangmanMainScene < Scene
     hm << "│         "
     hm << "│         "
     hm << "├──────┐"
-    hm << "└──────┘"
+    hm << "└──────┘#{TXTRST}"
     @hangman_graphic[7] = hm
 
 
